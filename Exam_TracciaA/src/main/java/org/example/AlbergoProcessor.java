@@ -15,7 +15,8 @@ public class AlbergoProcessor {
         } else if (request.equals("all_sorted")) {
             return Albergo.sortedHotels(alberghi);
         } else if (request.equals("most_expensive")) {
-            return Albergo.mostExpensive(alberghi);
+            String mostExpensive = Albergo.mostExpensive(alberghi);
+            return mostExpensive;
         } else {
             return "Comando non valido";
         }

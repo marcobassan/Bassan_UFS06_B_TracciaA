@@ -56,17 +56,21 @@ public class Albergo {
     }
 
     public static String mostExpensive(List<Albergo> hotels) {
-        List<Albergo> suites = new ArrayList<>();
+        Albergo mostExpensiveSuite = null;
+        double maxPrice = 0;
+
         for (Albergo hotel : hotels) {
-            if (hotel.isSuite() && hotel.getPrice() > 0) {
-                suites.add(hotel);
+            if (hotel.isSuite() && hotel.getPrice() > maxPrice) {
+                mostExpensiveSuite = hotel;
+                maxPrice = hotel.getPrice();
             }
         }
-        suites.sort(Comparator.comparingDouble(Albergo::getPrice).reversed());
-        List<Albergo> mostExpensiveSuite = new ArrayList<>();
-        if (!suites.isEmpty()) {
-            mostExpensiveSuite.add(suites.get(0));
+
+        if (mostExpensiveSuite != null) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            return gson.toJson(mostExpensiveSuite);
+        } else {
+            return "Nessun albergo suite trovato";
         }
-        return allHotels(mostExpensiveSuite);
     }
 }

@@ -15,7 +15,7 @@ public class App {
             System.out.println("Server avviato. Comandi disponibili:");
             System.out.println(" - all: Visualizza tutti gli alberghi");
             System.out.println(" - all_sorted: Visualizza gli alberghi ordinati");
-            System.out.println(" - most_expensive_suite: Visualizza la suite più costosa");
+            System.out.println(" - most_expensive: Visualizza la suite più costosa");
             System.out.println(" - close: Interrompi connessione");
             System.out.println();
 
